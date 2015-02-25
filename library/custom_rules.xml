@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="imported-boxlayout">
+	<property name="abs.dir" location="" baseDir="." />
+ 	<target name="update-jars" depends="-pre-build">
+		<echo>Jars successfully updated</echo>
+	</target>
+	<target name="-pre-build">
+		<copy toDir="${abs.dir}/libs" verbose="true">
+			<fileset dir="${sdk.dir}/extras/android/support/v4">
+				<include name="android-support-v4.jar" />
+			</fileset>
+		</copy>
+		<echo>Jar Pre-build complete</echo>
+	</target>
+	<target name="-pre-clean">
+		<delete verbose="true">
+			<fileset dir="${abs.dir}/libs">
+				<include name="**/android-support-v4.jar" />
+			</fileset>
+		</delete>
+	</target>
+</project>
